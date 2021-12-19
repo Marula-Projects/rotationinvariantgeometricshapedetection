@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="intenseyeshapedetection">Intenseye_Shape_Detection</h1>
+<h2 id="solution-in-theory">Solution in Theory</h2>
+<p>The general approximation of the solution can be expressed in following steps:</p>
+<ul>
+<li>
+<p>First the contour points and the center point of each polygon are located.</p>
+</li>
+<li>
+<p>Next for each polygon, the distance (radius) and the angle of each contour point relative to the center is obtained.</p>
+</li>
+<li>
+<p>Distances from center of the shape to the contour points are stored and sorted with respect to angles they make with the x axis. As depicted in following figure distances are stored in array with their ascending angle order from (pi) to (- pi) like d1, d2, d3, d4 ...</p>
+<ul>
+<li><img src="file:///home/alimhn/Documents/intense/Intenseye_CV_Task_ShapeDetector/Intenseye_CV_Task/dft/explanation/distance_angle_geometric_shape.png" alt="Getting Started"></li>
+</ul>
+</li>
+<li>
+<p>This array actually represents a distribution of distance measures over ascending angles from (- pi) to (pi). Distance will increase as we move towards the vertices of the polygon and decreases as we move towards middle of the polygon's edges. This distribution is depicted as follow for different polygons:</p>
+<ul>
+<li><img src="file:///home/alimhn/Documents/intense/Intenseye_CV_Task_ShapeDetector/Intenseye_CV_Task/dft/explanation/distributions.png" alt="Getting Started"></li>
+</ul>
+</li>
+<li>
+<p>As shown in the above figure, becasue  the resulted distributions are already sinosoidal waves with the frequency equal to the number of polygon edges, lets say n, thus applying a Discrete Fourier Transform (DFT) to distribution will result in a fourier expression with the biggest coefficient in its n'th term. Therefore the greatest coefficient's term index will represent the polygon's number of edges. Following expressions belong to different polygons that shows this fact explicitely:</p>
+<ul>
+<li><img src="file:///home/alimhn/Documents/intense/Intenseye_CV_Task_ShapeDetector/Intenseye_CV_Task/dft/explanation/coefficients.png" alt="Getting Started"></li>
+</ul>
+</li>
+</ul>
+<h2 id="explanation-of-control-flow">Explanation of Control-Flow</h2>
+<p>This section describes the control-flow of the code by describing the functions in order of execution:
+There are two seperate code files, first one is &quot;<strong>main</strong>.py&quot; which is responsible for assigning different colors to different class of polygons and saving the final painted image. Besides these tasks it calls the &quot;main()&quot; function in the other code file, &quot;dft.py&quot;, which is the main code snippet doing the most of the job. this section is set to describe the code in the order of execution:</p>
+<ul>
+<li>main(im):
+<ul>
+<li>Gets polygon contours of the polygons.</li>
+<li>Saves the contours as the connected components with attributes:
+<ul>
+<li>label</li>
+<li>centroid</li>
+</ul>
+</li>
+<li>For each polygon contour:
+<ul>
+<li>takes the centroid.</li>
+<li>Saves the radius of all contour (boundary) points relative to centroid.</li>
+<li>Saves the angle of all contour (boundary) points relative to centroid.</li>
+<li>IF the variation in radius of contour points are negligible then decides the shape as &quot;Circle&quot;</li>
+<li>(NOTE) Circle is checked and now starts to check the other polygons.</li>
+<li>Sorts the radius values with respect to their contour end-point's ascending angle from center.</li>
+<li>This array of sorted radius values are fed to the Real Fast Fourier Transform (rfft) to extract final transformation's terms.</li>
+<li>These terms in complex form are converted from rectangular coordinate to the polar ccoordinate and saved as weights or coefficient values.</li>
+<li>The index of maximum coefficient is extracted and assigned to the value, &quot;n&quot;.</li>
+<li>Based on the value of &quot;n&quot;, the current polygon under investigation is decided to be classified as a n-edged polygon.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="execution-instructions">Execution Instructions</h2>
+<ul>
+<li>
+<p>REQUIRES PYTHON&gt;=3.9</p>
+</li>
+<li>
+<p>Please extract the package.</p>
+</li>
+<li>
+<p>Run <code>make</code> in the directory containing this file to setup a virtual environment and install the module in it.</p>
+</li>
+<li>
+<p>Run <code>make activate</code> to activate the environment.</p>
+</li>
+<li>
+<p>Inside the environment, run <code>python -m dft my_image.bmp</code> to process an image (avoid using .jpg images, prefer bmp or png). The output will be saved at <code>./output.bmp</code>.</p>
+</li>
+</ul>
+
+</body>
+</html>
