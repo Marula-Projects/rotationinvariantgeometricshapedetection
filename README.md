@@ -29,3 +29,15 @@ This section describes the control-flow of the code by describing the functions 
             The index of maximum coefficient is extracted and assigned to the value, "n".
             Based on the value of "n", the current polygon under investigation is decided to be classified as a n-edged polygon.
 
+
+Execution Instructions
+
+    REQUIRES PYTHON>=3.9
+
+    Please extract the package.
+
+    Run make in the directory containing this file to setup a virtual environment and install the module in it.
+
+    Run make activate to activate the environment.
+
+    Inside the environment, run python -m dft my_image.bmp to process an image (avoid using .jpg images, prefer bmp or png). The output will be saved at ./output.bmp.
